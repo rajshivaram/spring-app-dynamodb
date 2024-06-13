@@ -17,14 +17,53 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>dynamodb</artifactId>
+			<version>2.26.1</version>
+		</dependency>
+
+		<dependency>
+        	<groupId>software.amazon.awssdk</groupId>
+        	<artifactId>dynamodb-enhanced</artifactId>
+        	<version>2.20.15</version>
+    	</dependency>
+
+		<dependency>
+    		<groupId>software.amazon.awssdk</groupId>
+    		<artifactId>auth</artifactId>
+    		<version>2.15.32</version>
+		</dependency>
+
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>regions</artifactId>
+			<version>2.15.32</version>
+		</dependency>
+
+		<dependency>
+			<groupId>software.amazon.awssdk</groupId>
+			<artifactId>s3</artifactId>
+			<version>2.15.32</version>
+		</dependency>
+
+		<dependency>
+        	<groupId>io.prometheus</groupId>
+        	<artifactId>simpleclient_logback</artifactId>
+        	<version>0.9.0</version>
+    	</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -35,6 +74,7 @@
 			<artifactId>micrometer-registry-prometheus</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
