@@ -1,0 +1,13 @@
+<configuration>
+    <appender name="LOKI" class="com.github.loki4j.logback.LokiAppender">
+        <loki4j>
+            <endpoint>http://localhost:3100/loki/api/v1/push</endpoint>
+            <batchSize>10</batchSize>
+            <batchIntervalMs>2000</batchIntervalMs>
+        </loki4j>
+    </appender>
+
+    <root level="info">
+        <appender-ref ref="LOKI"/>
+    </root>
+</configuration>
