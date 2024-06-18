@@ -30,13 +30,34 @@
 			<groupId>com.amazonaws</groupId>
 			<artifactId>aws-java-sdk-dynamodb</artifactId>
 			<version>1.12.272</version>
-		</dependency>		
+		</dependency>
+
+		<!-- Loki Logback Appender -->
+		<dependency>
+			<groupId>com.github.loki4j</groupId>
+			<artifactId>loki-logback-appender</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+		<!-- OpenTelemetry for tracing -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
+			<version>1.28.0</version>
+		</dependency>
+
+			<!-- OpenTelemetry Exporter for OTLP (Tempo) -->
+		<dependency>
+			<groupId>io.opentelemetry</groupId>
+			<artifactId>opentelemetry-exporter-otlp</artifactId>
+			<version>1.7.1</version>
+		</dependency>
 
 		<dependency>
-        	<groupId>io.prometheus</groupId>
-        	<artifactId>simpleclient_logback</artifactId>
-        	<version>0.9.0</version>
-    	</dependency>
+			<groupId>io.prometheus</groupId>
+			<artifactId>simpleclient_logback</artifactId>
+			<version>0.9.0</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.projectlombok</groupId>
