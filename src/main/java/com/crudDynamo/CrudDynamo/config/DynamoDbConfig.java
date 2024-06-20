@@ -27,6 +27,9 @@ public class DynamoDbConfig {
     @Value("${aws.region}")
     private String awsRegion;
 
+    @Value("${dynamodb.local}")
+    private boolean isLocalDynamoDB;
+
     @Bean
     public AWSCredentials amazonAWSCredentials() {
         return new BasicAWSCredentials(awsAccessKey, awsSecretKey);
@@ -39,10 +42,18 @@ public class DynamoDbConfig {
 
     @Bean
     public AmazonDynamoDB amazonDynamoDB() {
-        return AmazonDynamoDBClientBuilder.standard()
-                .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(awsDynamoDBEndPoint, awsRegion))
-                .withCredentials(amazonAWSCredentialsProvider())
-                .build();
+        AmazonDynamoDBClientBuilder builder = AmazonDynamoDBClientBuilder.standard()
+                .withCredentials(amazonAWSCredentialsProvider());
+
+        if (isLocalDynamoDB) {
+            builder.withEndpointConfiguration(
+                    new AwsClientBuilder.EndpointConfiguration(awsDynamoDBEndPoint, awsRegion)
+            );
+        } else {
+            builder.withRegion(awsRegion);
+        }
+
+        return builder.build();
     }
 
     @Bean
