@@ -24,6 +24,12 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<dependency>
@@ -31,6 +37,7 @@
 			<artifactId>aws-java-sdk-dynamodb</artifactId>
 			<version>1.12.272</version>
 		</dependency>
+
 
 		<!-- Loki Logback Appender -->
 		<dependency>
@@ -81,11 +88,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>io.opentelemetry</groupId>
-			<artifactId>opentelemetry-bom</artifactId>
-			<version>1.19.0</version>
-		</dependency>
 	</dependencies>
 
 	<build>
@@ -101,6 +103,28 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<!-- Use maven-dependency-plugin to exclude commons-logging -->
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<id>exclude-commons-logging</id>
+						<goals>
+							<goal>purge-local-repository</goal>
+						</goals>
+						<configuration>
+							<groupId>commons-logging</groupId>
+							<artifactId>commons-logging</artifactId>
+							<version>1.2</version>
+							<excludes>
+								<exclude>*</exclude>
+							</excludes>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
