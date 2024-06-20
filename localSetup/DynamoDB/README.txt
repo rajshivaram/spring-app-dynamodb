@@ -186,3 +186,8 @@ java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar [options]
 For more information on available options, run with the -help option:
 
   java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -help
+
+
+From PowerShell run the below command
+
+java -D"java.library.path=./DynamoDBLocal_lib" -jar DynamoDBLocal.jar
