@@ -49,15 +49,15 @@
 		<!-- OpenTelemetry for tracing -->
 		<dependency>
 			<groupId>io.opentelemetry</groupId>
-			<artifactId>opentelemetry-sdk-extension-autoconfigure</artifactId>
-			<version>1.28.0</version>
+			<artifactId>opentelemetry-sdk</artifactId>
+			<version>1.20.0</version>
 		</dependency>
 
 			<!-- OpenTelemetry Exporter for OTLP (Tempo) -->
 		<dependency>
 			<groupId>io.opentelemetry</groupId>
 			<artifactId>opentelemetry-exporter-otlp</artifactId>
-			<version>1.38.0</version>
+			<version>1.20.0</version>
 		</dependency>
 
 		<!-- Micrometer Prometheus Registry for Mimir -->
@@ -69,7 +69,7 @@
 		<dependency>
 			<groupId>io.opentelemetry</groupId>
 			<artifactId>opentelemetry-api</artifactId>
-			<version>1.11.0</version>
+			<version>1.20.0</version>
 		</dependency>
 
 		<dependency>
@@ -104,28 +104,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<plugin>
-				<!-- Use maven-dependency-plugin to exclude commons-logging -->
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<version>3.2.0</version>
-				<executions>
-					<execution>
-						<id>exclude-commons-logging</id>
-						<goals>
-							<goal>purge-local-repository</goal>
-						</goals>
-						<configuration>
-							<groupId>commons-logging</groupId>
-							<artifactId>commons-logging</artifactId>
-							<version>1.2</version>
-							<excludes>
-								<exclude>*</exclude>
-							</excludes>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
+
 		</plugins>
 	</build>
 
