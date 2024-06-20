@@ -28,6 +28,6 @@ public class OpenTelemetryConfig {
 
         GlobalOpenTelemetry.set(openTelemetrySdk);
 
-        return openTelemetrySdk.getTracer("spring-app");
+        return openTelemetrySdk.getTracer("spring-app-dynamodb");
     }
 }
