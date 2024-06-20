@@ -1,0 +1,28 @@
+name: cli-otel
+services:
+  prometheus:
+    image: prom/prometheus
+    command:
+      - "--config.file=/etc/prometheus/prom.yml"
+    ports:
+      # Publish the Prometheus frontend on localhost:9091
+      - 9091:9090
+    restart: always
+    volumes:
+      # Store Prometheus data in a volume:
+      - prom_data:/prometheus
+      # Mount the prom.yml config file
+      - ./prom.yml:/etc/prometheus/prom.yml
+  otelcol:
+    image: otel/opentelemetry-collector
+    restart: always
+    depends_on:
+      - prometheus
+    ports:
+      - 4317:4317
+    volumes:
+      # Mount the otelcol.yml config file
+      - ./otelcol.yml:/etc/otelcol/config.yaml
+
+volumes:
+  prom_data:
