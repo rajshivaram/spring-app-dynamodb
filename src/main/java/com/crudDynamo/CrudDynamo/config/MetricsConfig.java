@@ -15,7 +15,7 @@ public class MetricsConfig {
 
     @Bean
     public MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
-        return registry -> registry.config().commonTags("application", "spring-app");
+        return registry -> registry.config().commonTags("application", "spring-app-dynamodb");
     }
 
     @Bean
